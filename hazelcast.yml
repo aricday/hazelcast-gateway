@@ -3,7 +3,7 @@
 # Modified by Aric Day (aric.day@broadcom.com) - Jan 2020
 #
 ####################################################################################
-version: '3.7'
+version: '3.3'
 services:
   # hazelcast imdg (cluster server)
   hazelcast:

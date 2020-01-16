@@ -3,22 +3,23 @@
 # Modified by Aric Day (aric.day@broadcom.com) - Jan 2020
 #
 ####################################################################################
-version: '3.7'
+version: '3.3'
 services:
   api-gateway-1:
     image: caapim/gateway
     ports:
-      - "8080"
-      - "8443"
-      - "9443"
+      - "8080:8080"
+      - "8443:8443"
+      - "9443:9443"
+      - "8091:8091"
     volumes:
       - /opt/SecureSpan/Gateway/node/default/etc/bootstrap/services/restman
       - ./license:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/license
-      # - ./hazelcast/hazelcast_demo.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/hazelcast_demo.bundle
+      - ./hazelcast/hazelcast_demo.bundle:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/bundle/hazelcast_demo.bundle
       - ./hazelcast/apigw-hazelcast-client.xml:/opt/SecureSpan/Gateway/node/default/etc/bootstrap/assertions/ExternalHazelcastSharedStateProviderAssertion/hazelcast-client.xml
     environment:
       ACCEPT_LICENSE: "true"
       SSG_CLUSTER_HOST: "apigw.apimca.local"
       SSG_ADMIN_USERNAME: "admin"
-      SSG_ADMIN_PASSWORD: "7layer"
+      SSG_ADMIN_PASSWORD: "CAdemo123"
       EXTRA_JAVA_ARGS: "-Dcom.l7tech.server.extension.sharedCounterProvider=externalhazelcast -Dcom.l7tech.server.extension.sharedKeyValueStoreProvider=externalhazelcast -Dcom.l7tech.server.extension.sharedClusterInfoProvider=externalhazelcast"

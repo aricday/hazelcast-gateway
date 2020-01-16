@@ -3,7 +3,7 @@
 # Modified by Aric Day (aric.day@broadcom.com) - August 2019
 #
 ####################################################################################
-version: '3.7'
+version: '3.3'
 services:
   api-gateway:
     image: caapim/gateway
